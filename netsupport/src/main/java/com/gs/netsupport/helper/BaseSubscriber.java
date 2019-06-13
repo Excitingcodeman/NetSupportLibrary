@@ -25,7 +25,7 @@ public abstract class BaseSubscriber<T extends BaseResponse> extends DisposableO
         MyConsumerThrowable.handlingException(e);
     }
 
-    abstract void onSuccess(T value);
+    protected abstract void onSuccess(T value);
 
     protected void onFail(T value) {
 
