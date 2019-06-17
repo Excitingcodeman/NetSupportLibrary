@@ -30,4 +30,9 @@ public abstract class BaseSubscriber<T extends BaseResponse> extends DisposableO
     protected void onFail(T value) {
 
     }
+
+    @Override
+    public void onComplete() {
+
+    }
 }

@@ -3,7 +3,6 @@ package com.gs.netsupport.cover;
 import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
-import com.gs.netsupport.BuildConfig;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 
@@ -31,9 +30,7 @@ public class CustomStringResponseBodyConverter<T> implements Converter<ResponseB
     @Override
     public T convert(ResponseBody value) throws IOException {
         String response = value.string();
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, response);
-        }
+        Log.d(TAG, response);
         try {
             return adapter.fromJson(response);
         } finally {
