@@ -3,7 +3,6 @@ package com.gs.netsupport.cover;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonWriter;
-import com.orhanobut.logger.Logger;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okio.Buffer;
@@ -43,7 +42,6 @@ public class CustomStringRequestBodyConverter<T> implements Converter<T, Request
         JsonWriter jsonWriter = gson.newJsonWriter(writer);
         adapter.write(jsonWriter, value);
         jsonWriter.close();
-        Logger.d(RequestBody.create(MEDIA_TYPE, buffer.readByteString()));
         return RequestBody.create(MEDIA_TYPE, buffer.readByteString());
     }
 }
