@@ -19,8 +19,8 @@ import java.nio.charset.Charset;
  * 自定义数据转换器
  * 返回结果同一为String
  *
- * @author husky
  * @param <T>
+ * @author husky
  */
 
 public class CustomStringRequestBodyConverter<T> implements Converter<T, RequestBody> {
@@ -38,12 +38,12 @@ public class CustomStringRequestBodyConverter<T> implements Converter<T, Request
 
     @Override
     public RequestBody convert(@NotNull T value) throws IOException {
-        Logger.d(value);
         Buffer buffer = new Buffer();
         Writer writer = new OutputStreamWriter(buffer.outputStream(), UTF_8);
         JsonWriter jsonWriter = gson.newJsonWriter(writer);
         adapter.write(jsonWriter, value);
         jsonWriter.close();
+        Logger.d(RequestBody.create(MEDIA_TYPE, buffer.readByteString()));
         return RequestBody.create(MEDIA_TYPE, buffer.readByteString());
     }
 }
