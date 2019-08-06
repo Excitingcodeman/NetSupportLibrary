@@ -27,8 +27,7 @@ public class CustomStringConverterFactory extends Converter.Factory {
     }
 
     public static CustomStringConverterFactory create() {
-        Gson newGson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-        return create(newGson);
+        return create(new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create());
     }
 
     public static CustomStringConverterFactory create(Gson gson) {

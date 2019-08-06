@@ -1,6 +1,7 @@
 package com.gs.netsupport.exception;
 
 import com.google.gson.JsonParseException;
+import com.orhanobut.logger.Logger;
 import org.json.JSONException;
 import retrofit2.HttpException;
 
@@ -23,6 +24,7 @@ public class MyConsumerThrowable {
         if (null == throwable) {
             return;
         }
+        Logger.e(throwable, "网络请求错误");
         if (null != handler) {
             if (throwable instanceof SocketTimeoutException
                     || throwable instanceof ConnectException

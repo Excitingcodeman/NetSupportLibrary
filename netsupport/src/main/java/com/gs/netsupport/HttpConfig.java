@@ -34,4 +34,7 @@ public class HttpConfig {
                 .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true);
     }
+
+
+
 }
